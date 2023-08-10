@@ -3,13 +3,12 @@
  */
 #include <stdio.h>
 /**
- * main() - print only
+ * main - print strings
+ * @parameterx: no parameter
+(* 
+ * Description: print "Programming is like building a multilingual puzzle)?
  *
- * Description: print "Programming is like building a multilingual puzzle"
- *
- * @parameter: no parameters
- *
- * Return: Always 0 (Success)
+ * Return: return 0
  */
 int main(void)
 {
