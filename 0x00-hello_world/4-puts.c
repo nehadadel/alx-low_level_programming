@@ -1,9 +1,9 @@
-/*
+/**
  * File: 4-puts.c
  */
 #include <stdio.h>
-/* prints ""Programming is like building a multilingual puzzle"
- *return always 0
+/**
+ * main function - This is printing "Programming is like building a multilingual puzzle"
  */
 int main(void)
 {
