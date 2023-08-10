@@ -3,11 +3,9 @@
  */
 #include <stdio.h>
 /**
- * main - print strings
-(*
- * Description: print "Programming is like building a multilingual puzzle)
+ * main - Prints the string "Programming is like building a multilingual puzzle" to the console.
  *
- * Return: return 0
+ * Return: Always 0 (Success).
  */
 int main(void)
 {
