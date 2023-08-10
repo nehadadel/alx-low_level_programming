@@ -3,7 +3,7 @@
  */
 #include <stdio.h>
 /**
- * main - Prints the string "Programming is like building a multilingual puzzle" to the console.
+ * main - Prints the string "Programming is like building a multilingual puzzle"
  *
  * Return: Always 0 (Success).
  */
