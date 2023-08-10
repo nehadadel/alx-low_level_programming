@@ -1,6 +1,3 @@
-/**
- * File: 4-puts.c
- */
 #include <stdio.h>
 /**
  *main - Entry point
