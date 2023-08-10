@@ -5,7 +5,7 @@
 /**
  * main - print strings
 (*
- * Description: print "Programming is like building a multilingual puzzle)?
+ * Description: print "Programming is like building a multilingual puzzle)
  *
  * Return: return 0
  */
