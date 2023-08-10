@@ -3,10 +3,12 @@
  */
 #include <stdio.h>
 /**
- * main - Prints the string "Programing is like building a multilingual puzzle"
+ * main - Entry point
  *
- * Return: Always 0 (Success).
- */
+ *Description : the program c prints with put function in console
+ *
+ *Return : Alawys 0 (Success)
+*/
 int main(void)
 {
 
