@@ -4,7 +4,7 @@
  *
  *Description : the program c prints with put function in console
  *
- * Return : Alawys 0 (Success)
+ * Return : Alawys return  0 (Success)
 */
 int main(void)
 {
