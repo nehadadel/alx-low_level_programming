@@ -4,7 +4,6 @@
 #include <stdio.h>
 /**
  * main - print strings
- * @parameterx: no parameter
 (*
  * Description: print "Programming is like building a multilingual puzzle)?
  *
