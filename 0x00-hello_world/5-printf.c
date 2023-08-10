@@ -1,6 +1,12 @@
 #include <stdio.h>
-
-int main()
+/**
+ *main - Entry point
+ *
+ *Description : the program c prints with put function in console
+ *
+ *Return: Always 0 (Success)
+*/
+int main(void)
 {
   printf("with proper grammar, but the outcome is a piece of art,\n ");
   return 0;
