@@ -4,7 +4,7 @@
 /**
  *main - Entry point
  *
- *Description: the program c prints whether the number is +ve or -ve. 
+ *Description: the program c prints whether the number is +ve or -ve.
  *
  *Return: Always 0 (Success)
 */
