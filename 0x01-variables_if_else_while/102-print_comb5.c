@@ -21,8 +21,12 @@ for (k = 0 ; k < 8 ; k++)
 {
 for (j = k ; j < 9 ; j++)
 {
-for (i = j + 1 ; i <= 9 ; i++)
+for (i = 0 ; i <= 9 ; i++)
 {
+if ((m == 0) && (j == 0) && (i == 0) && (k == 0))
+{
+continue;
+}
 putchar('0' + m);
 putchar('0' + k);
 putchar(' ');
