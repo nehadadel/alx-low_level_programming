@@ -14,15 +14,16 @@ int j;
 
 for (j = 0 ; j < 9 ; j++)
 {
-for (i = j+1 ; i <= 9 ; i++)
+for (i = j + 1 ; i <= 9 ; i++)
 {
 putchar('0' + j);
 putchar('0' + i);
-if ((j != 8) && (i != 9))
+if ((j == 8) && (i == 9))
 {
+break;
+}
 putchar(',');
 putchar(' ');
-}
 }
 }
 putchar('\n');
