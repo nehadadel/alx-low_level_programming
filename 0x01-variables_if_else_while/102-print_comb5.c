@@ -12,27 +12,21 @@ int i;
 
 int j;
 
-int k;
 
-int m;
-for (m = 0 ; m < 8 ; m++)
+for (j = 0 ; j <= 99 ; j++)
 {
-for (k = 0 ; k < 8 ; k++)
+for (i = 0 ; i <= 99 ; i++)
 {
-for (j = 0 ; j <= 9 ; j++)
-{
-for (i = 0 ; i <= 9 ; i++)
-{
-if ((m == 0) && (j == 0) && (i == 0) && (k == 0))
+if ((j == 0) && (i == 0))
 {
 continue;
 }
-putchar('0' + m);
-putchar('0' + k);
+putchar('0' + j / 10);
+putchar('0' + j % 10);
 putchar(' ');
-putchar('0' + j);
-putchar('0' + i);
-if ((m == 9) && (j == 8) && (i == 9) && (k == 9))
+putchar('0' + i / 10);
+putchar('0' + i % 10);
+if ((j == 99) && (i == 98))
 {
 break;
 }
