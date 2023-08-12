@@ -2,7 +2,7 @@
 /**
  *main - Entry point
  *
- *Description : the program c prints all possible different combinations of two digits
+ *Description : the program c prints all possible different comb of two digits
  *
  *Return: Always 0 (Success)
 */
@@ -18,8 +18,11 @@ for (i = j+1 ; i <= 9 ; i++)
 {
 putchar('0' + j);
 putchar('0' + i);
+if ((j != 8) && (i != 9))
+{
 putchar(',');
 putchar(' ');
+}
 }
 }
 putchar('\n');
