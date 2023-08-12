@@ -1,0 +1,8 @@
+#include <stdio.h>
+/**
+ *main - Entry point
+ *
+ *Description : the program c prints
+ *
+ *Return: Always 0 (Success)
+*/
