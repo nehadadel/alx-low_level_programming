@@ -17,7 +17,7 @@ for (j = 0 ; j <= 99 ; j++)
 {
 for (i = j ; i <= 99 ; i++)
 {
-if ((j == 0) && (i == 0))
+if ((j == i))
 {
 continue;
 }
