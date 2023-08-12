@@ -19,7 +19,7 @@ for (m = 0 ; m < 8 ; m++)
 {
 for (k = 0 ; k < 8 ; k++)
 {
-for (j = k ; j < 9 ; j++)
+for (j = k ; j <= 9 ; j++)
 {
 for (i = 0 ; i <= 9 ; i++)
 {
