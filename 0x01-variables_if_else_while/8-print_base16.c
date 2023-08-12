@@ -15,7 +15,8 @@ for (i = 0; i <= 15; i++)
 if (i <= 9)
 {
 putchar('0' + i);
-} else
+}
+else
 {
 putchar('a' + i % 10);
 }
