@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+int print_last_digit(int i);
 int _putchar(char ch);
 void print_alphabet(void);
 void print_alphabet_x10(void);
