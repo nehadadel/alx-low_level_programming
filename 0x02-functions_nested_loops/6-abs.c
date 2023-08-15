@@ -1,5 +1,5 @@
 #include "main.h"
-/*
+/**
  *_abs - that return absolute value.
  *
  *@i: the integer to be converted
