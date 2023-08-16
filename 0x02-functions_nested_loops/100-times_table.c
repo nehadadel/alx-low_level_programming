@@ -17,10 +17,9 @@ for (i = 0; i <= n; i++)
 for (j = 0 ; j <= n ; j++)
 {
 result = i * j;
-if (j != 0)
+if ((result == 0) && (j == 0))
 {
-_putchar(',');
-_putchar(' ');
+_putchar('0' + result);
 }
 if ((result <= 9) && (j != 0))
 {
@@ -40,8 +39,12 @@ _putchar('0' + result / 100);
 _putchar('0' + (result % 100) / 10);
 _putchar('0' + result % 10);
 }
-else
-_putchar('0' + result);
+if (j == 9)
+{
+break;
+}
+_putchar(',');
+_putchar(' ');
 }
 _putchar('\n');
 }
