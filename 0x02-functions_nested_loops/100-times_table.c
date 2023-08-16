@@ -15,6 +15,8 @@ int j;
 
 int result;
 
+if(n >= 0 && n <= 15)
+{
 for (i = 0; i <= n; i++)
 {
 for (j = 0 ; j <= n ; j++)
@@ -28,19 +30,16 @@ if ((result <= 9) && (j != 0))
 {
 _putchar(' ');
 _putchar(' ');
-_putchar(' ');
 _putchar('0' + result);
 }
 if (result > 9 && result <= 99)
 {
-_putchar(' ');
 _putchar(' ');
 _putchar('0' + result / 10);
 _putchar('0' + result % 10);
 }
 if (result > 99 && result <= 225)
 {
-_putchar(' ');
 _putchar('0' + result / 100);
 _putchar('0' + (result % 100)/10);
 _putchar('0' + result % 10);
@@ -53,5 +52,6 @@ _putchar(',');
 _putchar(' ');
 }
 _putchar('\n');
+}
 }
 }
