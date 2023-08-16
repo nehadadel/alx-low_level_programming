@@ -18,6 +18,6 @@ if (j < 0)
 j = -1 * j;
 }
 last_digit = j % 10;
-_putchar(last_digit + '0');
+_putchar(last_digit + '%c');
 return (last_digit);
 }
