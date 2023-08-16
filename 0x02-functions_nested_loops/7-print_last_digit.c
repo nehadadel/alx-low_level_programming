@@ -15,6 +15,6 @@ if (i <0 )
 i = -1 * i;
 }
 last_digit = i % 10;
-_putchar('0' + last_digit);
+_putchar(last_digit + '0');
 return (last_digit);
 }
