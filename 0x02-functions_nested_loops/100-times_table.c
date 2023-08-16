@@ -6,16 +6,13 @@
  *
  *Return: nothing
 */
-
 void print_times_table(int n)
 {
 int i;
-
+int result;
 int j;
 
-int result;
-
-if(n >= 0 && n <= 15)
+if (n >= 0 && n <= 15)
 {
 for (i = 0; i <= n; i++)
 {
@@ -41,7 +38,7 @@ _putchar('0' + result % 10);
 if (result > 99 && result <= 225)
 {
 _putchar('0' + result / 100);
-_putchar('0' + (result % 100)/10);
+_putchar('0' + (result % 100) / 10);
 _putchar('0' + result % 10);
 }
 if (j == n)
