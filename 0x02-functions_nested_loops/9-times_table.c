@@ -17,7 +17,11 @@ for (i = 0; i <= 9; i++)
 for (j = 0 ; j <= 9 ; j++)
 {
 result = i * j;
-if (result <= 9)
+ if ((result == 0) && (j == 0))
+{
+_putchar('0' + result);
+}
+if ((result <= 9) && (j != 0))
 {
 _putchar(' ');
 _putchar('0' + result);
