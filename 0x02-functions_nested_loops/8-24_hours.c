@@ -12,7 +12,7 @@ int mintus;
 
 for (hr = 0; hr <= 23; hr++)
 {
-for (mintus = 0 ; mintus <= 59 ; mintus ++)
+for (mintus = 0 ; mintus <= 59 ; mintus++)
 {
 _putchar('0' + (hr / 10));
 _putchar('0' + (hr % 10));
