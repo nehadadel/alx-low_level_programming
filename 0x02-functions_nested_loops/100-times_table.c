@@ -24,14 +24,25 @@ if ((result == 0) && (j == 0))
 {
 _putchar('0' + result);
 }
-if ((result <= n) && (j != 0))
+if ((result <= 9) && (j != 0))
 {
+_putchar(' ');
+_putchar(' ');
 _putchar(' ');
 _putchar('0' + result);
 }
-if (result > n)
+if (result > 9 && result <= 99)
 {
+_putchar(' ');
+_putchar(' ');
 _putchar('0' + result / 10);
+_putchar('0' + result % 10);
+}
+if (result > 99 && result <= 225)
+{
+_putchar(' ');
+_putchar('0' + result / 100);
+_putchar('0' + (result % 100)/10);
 _putchar('0' + result % 10);
 }
 if (j == n)
