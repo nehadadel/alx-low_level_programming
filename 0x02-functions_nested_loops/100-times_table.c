@@ -39,7 +39,7 @@ _putchar('0' + result / 100);
 _putchar('0' + (result % 100) / 10);
 _putchar('0' + result % 10);
 }
-if (j == 9)
+if (j == n)
 {
 break;
 }
