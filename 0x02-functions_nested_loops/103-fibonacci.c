@@ -23,6 +23,6 @@ first = second;
 second = next;
 next = first + second;
 }
-printf("%lu", even);
+printf("%lu\n", even);
 return (0);
 }
