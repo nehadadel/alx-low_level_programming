@@ -28,4 +28,5 @@ first = second;
 second = next;
 next = first + second;
 }
+return (0);
 }
