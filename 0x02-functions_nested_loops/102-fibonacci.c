@@ -18,11 +18,11 @@ for (count = 3; count <= 50; count++)
 {
 if (count == 50)
 {
-printf("%lu \n", next);
+printf("%lu\n", next);
 }
 else
 {
-printf("%lu, ", next); 
+printf("%lu, ", next);
 }
 first = second;
 second = next;
