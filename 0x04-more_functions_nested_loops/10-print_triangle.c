@@ -21,7 +21,7 @@ _putchar(' ');
 for (k = 0; k < i; k++)
 _putchar('#');
 }
-if (inc1 == size)
+if (i == size)
 {
 continue;
 }
