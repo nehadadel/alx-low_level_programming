@@ -24,7 +24,7 @@ printf("%d", i);
 }
 if (i == 100)
 {
-break;
+continue;
 }
 putchar(' ');
 }
