@@ -29,6 +29,5 @@ for (i = index / 2; i < index; i++)
 _putchar(str[i]);
 }
 }
-}
 _putchar('\n');
 }
