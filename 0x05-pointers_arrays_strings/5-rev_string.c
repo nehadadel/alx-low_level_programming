@@ -21,6 +21,6 @@ for (i = 0; i < index / 2; i++)
 {
 temp = s[i];
 s[i] = s[index - i - 1];
-s[index - i - 1] = s[i];
+s[index - i - 1] = temp;
 }
 }
