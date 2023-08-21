@@ -19,7 +19,7 @@ if (index % 2 != 0)
 {
 for (i = (index - 1) / 2; i < index; i++)
 {
-_putchar(str[i]);
+_putchar(str[i+1]);
 }
 }
 else
