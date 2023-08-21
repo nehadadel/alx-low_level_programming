@@ -10,11 +10,16 @@ void print_rev(char *s)
 {
 int index;
 
-index = _strlen(s) - 1;
+index = 0;
+while (s[index] != '\0')
+{
+index++;
+}
+index--;
 while (index >= 0)
 {
 _putchar(s[index]);
 index--;
 }
- _putchar('\0');
+_putchar('\0');
 }
