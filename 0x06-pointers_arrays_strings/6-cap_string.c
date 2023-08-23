@@ -16,47 +16,14 @@ index = 0;
 while (*(s + index) != '\0')
 {
 referance = 0;
-switch (*(s + index))
-{
-case ' ' :
+if ((s + index) == ' ' || (s + index) == ',' || (s + index) == '\t')
 referance = 1;
-break;
-case '"':
+if ((s + index) == ':' || (s + index) == ';' || (s + index) == '"')
 referance = 1;
-break;
-case '.' :
+if ((s + index) == '{' || (s + index) == '}' || (s + index) == '\n')
 referance = 1;
-break;
-case ':' :
+if ((s + index) == '(' || (s + index) == ')' || (s + index) == '!' || (s + index) == '?')
 referance = 1;
-break;
-case '\t' :
-referance = 1;
-break;
-case ',' :
-referance = 1;
-break;
-case '{' :
-referance = 1;
-break;
-case '}' :
-referance = 1;
-break;
-case '(' :
-referance = 1;
-break;
-case ')' :
-referance = 1;
-break;
-case '\n' :
-referance = 1;
-break;
-case '!' :
-referance = 1;
-break;
-default :
-referance = 0;
-}
 if (referance == 1 && *(s + index + 1) >= 97 && *(s + index + 1) <= 122)
 {
 *(s + index + 1) = *(s + index + 1) - 32;
