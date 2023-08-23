@@ -9,18 +9,20 @@
  */
 char *_strcat(char *dest, char *src)
 {
-int i, length;
+int lengthD, lengthS;
 
-i = 0;
-while (*(dest + i) != '\0')
+lengthD = 0;
+lengthS = 0;
+
+while (*(dest + lengthD) != '\0')
+lengthD++;
+
+while (*(src + lengthS) != '\0' && lengthD < 97)
 {
-i++;
+*(dest + lengthD) = *(src + lengthS);
+lengthD++;
+lengthS++;
 }
-length = i;
-for (i = 0; *(src + i) != '\0'; i++)
-{
-*(dest + length + i) = *(scr + i);
-}
-*(dest + length + i) = '\0';
+*(dest + lengthD) = '\0';
 return (dest);
 }
