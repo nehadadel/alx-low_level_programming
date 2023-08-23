@@ -31,7 +31,7 @@ if (referance == 1 && *(s + index + 1) >= 97 && *(s + index + 1) <= 122)
 *(s + index + 1) = (*(s + index + 1)) - 32;
 }
 if (index == 0 && *(s + index + 1) >= 97 && *(s + index + 1) <= 122)
-*(s + i) = *(s + i) - 32;
+*(s + index) = *(s + index) - 32;
 index++;
 
 }
