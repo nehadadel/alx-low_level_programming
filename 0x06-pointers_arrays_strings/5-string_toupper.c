@@ -7,17 +7,17 @@
  */
 char *string_toupper(char *s)
 {
-  int index;
+int index;
 
-  index = 0;
-  while (*s != '\0')
-    {
-      if (*s >= 97 && *s <= 122)
-	{
-	  *s = *s - 32;
-	}
-      s++;
-      index++;
-    }
-  return (s - index);
+index = 0;
+while (*s != '\0')
+{
+if (*s >= 97 && *s <= 122)
+{
+*s = *s - 32;
+}
+s++;
+index++;
+}
+return (s - index);
 }
