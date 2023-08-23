@@ -16,13 +16,13 @@ index = 0;
 while (*(s + index) != '\0')
 {
 referance = 0;
-if ((s + index) == ' ' || (s + index) == ',' || (s + index) == '\t')
+if (*(s + index) == ' ' || *(s + index) == ',' || *(s + index) == '\t')
 referance = 1;
-if ((s + index) == ':' || (s + index) == ';' || (s + index) == '"')
+if (*(s + index) == ':' || *(s + index) == ';' || *(s + index) == '"')
 referance = 1;
-if ((s + index) == '{' || (s + index) == '}' || (s + index) == '\n')
+if (*(s + index) == '{' || *(s + index) == '}' || *(s + index) == '\n')
 referance = 1;
-if ((s + index) == '(' || (s + index) == ')' || (s + index) == '!' || (s + index) == '?')
+if (*(s + index) == '(' || *(s + index) == ')' || *(s + index) == '!' || *(s + index) == '?')
 referance = 1;
 if (referance == 1 && *(s + index + 1) >= 97 && *(s + index + 1) <= 122)
 {
