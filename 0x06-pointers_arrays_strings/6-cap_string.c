@@ -22,15 +22,17 @@ if (*(s + index) == ':' || *(s + index) == ';' || *(s + index) == '"')
 referance = 1;
 if (*(s + index) == '{' || *(s + index) == '}' || *(s + index) == '\n')
 referance = 1;
-if (*(s + index) == '(' || *(s + index) == ')' || *(s + index) == '!' || *(s + index) == '?')
+if (*(s + index) == '(' || *(s + index) == ')' || *(s + index) == '!')
+referance = 1;
+if (*(s + index) == '?')
 referance = 1;
 if (referance == 1 && *(s + index + 1) >= 97 && *(s + index + 1) <= 122)
 {
 *(s + index + 1) = *(s + index + 1) - 32;
 }
 index++;
- 
+
 }
-return (s);  
-}    
-  
+return (s);
+}
+
