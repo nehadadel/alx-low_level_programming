@@ -1,0 +1,69 @@
+#include "main.h"
+/**
+ * cap_string - capitalizes most of the words in a string.
+ * @s: analized string.
+ *
+ * Return: String with all words capitalized.
+ */
+char *cap_string(char *s)
+{
+  int index;
+  int referance;
+
+  referance = 0;
+
+  index = 0;
+  while (*(s + index) != '\0')
+    {
+      referance = 0;
+      switch (*(s + index))
+	{
+	case ' ' :
+	referance = 1;
+       break;
+    case '"':
+      referance = 1;
+       break;
+    case '.' :
+      referance = 1;
+       break;
+    case ':' :
+      referance = 1;
+       break;
+    case '\t' :
+      referance = 1;
+       break;
+    case ',' :
+      referance = 1;
+       break;
+    case '{' :
+      referance = 1;
+       break;
+    case '}' :
+      referance = 1;
+       break;
+    case '(' :
+      referance = 1;
+       break;
+    case ')' :
+      referance = 1;
+       break;
+    case '\n' :
+      referance = 1;
+    break;
+    case '!' :
+      referance = 1;
+      break;
+    default :
+      referance = 0;
+    }
+      if (referance == 1 && *(s + index + 1) >= 97 && *(s + index + 1) <= 122)
+	{
+	  *(s + index + 1) = *(s + index + 1) - 32;
+	}
+      index++;
+	 
+    }
+  return (s);  
+}    
+  
