@@ -7,8 +7,8 @@
 char *rot13(char *s)
 {
 int index_s, index_l;
-char letters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-char r_letters[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+char letters[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char r_letters[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 for (index_s = 0; *(s + index_s) != '\0'; index_s++)
 {
@@ -17,6 +17,7 @@ for (index_l = 0; index_l < 56; index_l++)
 if (*(s + index_s) == letters[index_l])
 {
 *(s + index_s) = r_letters[index_l];
+break;
 }
 }
 }
