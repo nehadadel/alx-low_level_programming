@@ -12,7 +12,7 @@ char r_letters[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 for (index_s = 0; *(s + index_s) != '\0'; index_s++)
 {
-for (index_l = 0; index_l < 28; index_l++)
+for (index_l = 0; index_l < 56; index_l++)
 {
 if (*(s + index_s) == letters[index_l])
 {
