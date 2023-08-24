@@ -8,18 +8,19 @@
 char *leet(char *s)
 {
 int index_s, index_arr;
-char * arr[] = {a, e, o, t,l};
+char arr_letters[] = "aAeEoOtTlL";
+char arr_numbers[] = "4433007711";
 
 for (index_s = 0; *(s + index_s) != '\0'; index_s++)
 {
-for (index_arr = 0; index_arr <= 5; index_arr++)
+for (index_arr = 0; index_arr < 10; index_arr++)
 {
-if (*(s + index_s) == *(s + index_arr) || *(s + index_s) == *(s + index_arr) - 32)
+if (*(s + index_s) == *(arr_letters + index_arr))
 {
-
+*(s + index_s) = *(arr_numbers + index_arr);
 }
 }
 }
- 
+return (s);
 
 }
