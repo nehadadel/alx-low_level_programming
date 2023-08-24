@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+int _putchar(char ch);
+void print_number(int n);
 char *rot13(char *);
 char *leet(char *);
 char *cap_string(char *);
