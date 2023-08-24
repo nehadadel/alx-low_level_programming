@@ -15,6 +15,8 @@ referance = 0;
 index = 0;
 while (*(s + index) != '\0')
 {
+if (index == 0 && *s >= 97 && *s <= 122)
+*s = *s - 32;
 referance = 0;
 if (*(s + index) == ' ' || *(s + index) == ',' || *(s + index) == '\t')
 referance = 1;
