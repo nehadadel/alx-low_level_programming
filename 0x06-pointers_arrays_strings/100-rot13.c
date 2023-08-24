@@ -14,7 +14,7 @@ for (index_s = 0; *(s + index_s) != '\0'; index_s++)
 {
 for (index_l = 0; index_l < 28; index_l++)
 {
-if (*(s + index_s) == letter[index_l])
+if (*(s + index_s) == letters[index_l])
 {
 *(s + index_s) = r_letters[index_l];
 }
