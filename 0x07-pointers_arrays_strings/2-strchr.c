@@ -21,7 +21,7 @@ while (*(s + i) != '\0')
 if (*(s + i) == c)
 {
 flag = 1;
-return (s + i);
+break;
 }
 i++;
 }
@@ -29,4 +29,5 @@ if (flag == 0)
 return ('\0');
 if (c == '\0')
 return (s);
+return (s + i);
 }
