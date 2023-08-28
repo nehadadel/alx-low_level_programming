@@ -14,6 +14,8 @@ int i, flag;
 
 i = 0;
 flag = 0;
+if (*s == '\0')
+return (s);
 while (*(s + i) != '\0')
 {
 if (*(s + i) == c)
