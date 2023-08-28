@@ -14,9 +14,9 @@ int i, flag;
 
 i = 0;
 flag = 0;
-while (*(S + i) != '\0')
+while (*(s + i) != '\0')
 {
-if (*(S + i) == c)
+if (*(s + i) == c)
 {
 flag = 1;
 break;
@@ -24,6 +24,6 @@ break;
 i++;
 }
 if (flag == 0)
-return (NULL);
+return ('\0');
 return (s + i);
 }
