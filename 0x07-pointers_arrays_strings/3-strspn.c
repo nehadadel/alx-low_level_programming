@@ -7,11 +7,11 @@ int i, j, index;
 
 i = 0;
 index = 0;
-while (*(accept + i) = '\0')
+while (*(accept + i) == '\0')
 {
 for (j = 0; *(s + j) != '\0'; j++)
 {
-if (*(accept + i)) == *(s + j))
+if (*(accept + i) == *(s + j))
 {
 index = index + 1;
 }
