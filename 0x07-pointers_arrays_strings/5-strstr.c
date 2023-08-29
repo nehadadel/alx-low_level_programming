@@ -1,11 +1,13 @@
- #include "main.h"
+#include "main.h"
 /**
- *_strstr - 
+ *_strstr -  function finds the first occurrence of the substring needle
+ *in the string haystack.
+ *The terminating null bytes (\0) are not compared
  *
  *@haystack : pointer to char
  *@needle : pointer to char
  *
- *Return : pointer to char
+ *Return: pointer to char
 */
 char *_strstr(char *haystack, char *needle)
 {
@@ -19,7 +21,7 @@ while (*(needle + i) != '\0')
 {
 while (*(haystack + j) != '\0')
 {
-if (*(needle) == *(haystack + j) && i == 0)
+if ((*(needle) == *(haystack + j))&&(i == 0))
 {
 p = haystack + j;
 j++;
