@@ -3,22 +3,19 @@
 */
 unsigned int _strspn(char *s, char *accept)
 {
-int i, j, index;
+int j = 0, i = 0;
+unsigned int a = 0;
 
-i = 0;
-index = 0;
-while (*(accept + i) == '\0')
+while (s[i] != ' ' && s[i] != '\0')
 {
-for (j = 0; *(s + j) != '\0'; j++)
+while (accept[j] != '\0')
 {
-if (*(accept + i) == *(s + j))
-{
-index = index + 1;
-}		  
+if (s[i] == accept[j])
+a++;
+j++;
 }
-if (i == 0 && index == 0)
-return (0);
 i++;
+j = 0;
 }
-return (0);
+return (a);
 }
