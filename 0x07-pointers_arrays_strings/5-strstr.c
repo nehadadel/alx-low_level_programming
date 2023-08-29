@@ -1,6 +1,12 @@
-File Edit Options Buffers Tools C Help                                                                                                       
-#include "main.h"
-/***/
+ #include "main.h"
+/**
+ *_strstr - 
+ *
+ *@haystack : pointer to char
+ *@needle : pointer to char
+ *
+ *Return : pointer to char
+*/
 char *_strstr(char *haystack, char *needle)
 {
 int i, j;
@@ -15,7 +21,7 @@ while (*(haystack + j) != '\0')
 {
 if (*(needle) == *(haystack + j) && i == 0)
 {
-p = haystack + j;;
+p = haystack + j;
 j++;
 break;
 }
