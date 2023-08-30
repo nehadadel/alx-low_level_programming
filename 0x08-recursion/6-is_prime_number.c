@@ -10,9 +10,12 @@
 */
 int is_prime_number(int n)
 {
+if (n == 1 || n < 0)
+return (0);
 if (n == 2 || n == 4 || n == 5)
 return (1);
- if ((((n * n) - 1) % 24) == 0)
+if ((((n * n) - 1) % 24) == 0)
 return (1);
+
 return (0);
 }
