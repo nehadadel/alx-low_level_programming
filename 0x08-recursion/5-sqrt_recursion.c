@@ -6,7 +6,7 @@
  *
  *Return: return -1 if n<0
  *return 0 if n = 0
- *otherwise return sqrt root of num 
+ *otherwise return sqrt root of num
 */
 int _sqrt_recursion(int n)
 {
