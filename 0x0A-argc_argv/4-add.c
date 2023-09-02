@@ -17,14 +17,17 @@ char *letter;
 sum = 0;
 
 if (argc < 2)
+{
 printf("0\n");
+return (0);
+}
 
 for (i = 1; i < argc; i++)
 {
 letter = argv[i];
 if (*letter < 47 || *letter > 57)
 {
-printf("Erorr\n");
+printf("Error\n");
 return (1);
 }
 sum = sum + atoi(*(argv + i));
