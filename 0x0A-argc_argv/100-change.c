@@ -17,7 +17,9 @@ if (argc < 2)
 {printf("Error\n");
 return (1);
 }
-
+coins = atoi(*(argv + 1));
+if (coins < 0)
+printf ("0\n");
 
 return (0);
 
