@@ -11,23 +11,17 @@
 
 int main(int argc, char *argv[])
 {
-int i, num, count;
+int i, sum;
 
-count = 0;
+sum = 0;
+
 if (argc < 2)
 printf("0\n");
 
-for (i = 1; i <= argc ;i++)
+for (i = 1; i < argc; i++)
 {
-if (!(isdigit(*(argv + i))))
-{
-printf("Error\n");
-return (1);
+sum = sum + atoi(*(argv + i));
 }
-count = count + atoi(*(argv + i));
-}
-printf("%d\n",count);
-
+printf("%d\n", sum);
 return (0);
 }
- 
