@@ -46,7 +46,7 @@ coins++;
 }
 if (cents == 1)
 coins++;
-printf("%d\n",coins);
+printf("%d\n", coins);
 }
 
 return (0);
