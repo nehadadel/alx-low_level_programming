@@ -21,11 +21,12 @@ i = 0;
 while ((str + i) != NULL)
 i++;
 
-s = malloc(sizeof(char) * (i + 1));
+s =(char *)malloc(sizeof(char) * (i + 1));
 if (s == NULL)
 return (NULL);
 
 for (j = 0; j <= i ; j++)
 s[j] = str[j];
+ s[j] = '\0';
 return (s);
 }
