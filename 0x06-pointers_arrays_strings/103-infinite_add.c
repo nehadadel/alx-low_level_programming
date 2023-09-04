@@ -11,7 +11,7 @@
 */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-int flag, biggest, length1, length2, i, j;
+int flag, biggest, length1, length2;
 
 flag = 0;
 length1 = 0;
@@ -20,13 +20,14 @@ while (*(n1 + length1) != '\n')
 length1++;
 while (*(n2 + length2) != '\n')
 length2++;
-if (size_r < length1 + 1 || size_r < length2 + 1)
+if (size_r <=  length1 + 1 || size_r <= length2 + 1)
 return (0);
 if (length1 >= length2)
 biggest = length1;
 else
 biggest = length2;
-for (i = biggest; biggest <= 0; biggest--)
+r[biggest + 1] = '\0';
+while (biggest >= 0)
 {
 r[biggest] = n1[length1] + n2[length2] + flag;
 if (r[biggest] > 9)
@@ -36,6 +37,9 @@ flag = 1;
 }
 else
 flag = 0;
+length1--;
+length2--;
+biggest--;
 }
-return (r);
+return (r + 1);
 }
