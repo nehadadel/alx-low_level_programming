@@ -18,7 +18,7 @@ if (str == NULL)
 return (NULL);
 
 i = 0;
-while (str(i + 1) != NULL)
+while (str + i != NULL)
 i++;
 
 s =(char *)malloc(sizeof(char) * (i + 1));
