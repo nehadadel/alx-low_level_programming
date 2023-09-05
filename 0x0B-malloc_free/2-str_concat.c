@@ -16,9 +16,9 @@ char *s;
 
 length_s1 = 0;
 length_s2 = 0;
-if (*s1 == '\0')
+if (s1 == NULL)
 s1 = "";
-if (*s2 == '\0')
+if (s2 == NULL)
 s2 = "";
 while (*(s1 + length_s1) != '\0')
 length_s1++;
