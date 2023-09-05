@@ -28,7 +28,7 @@ size = length_s1 + length_s2 + 1;
 s = (char *)malloc(sizeof(char) * size); 
 if (s == NULL)
 return (NULL);
-for (i = 0; s[i] != '\0' ; i++)
+for (i = 0; i < size ; i++)
 {
 if (i < length_s1)
 s[i] = s1[i];
