@@ -24,7 +24,7 @@ while (*(s1 + length_s1) != '\0')
 length_s1++;
 while (*(s2 + length_s2) != '\0')
 length_s2++;
-size = length_s1 + length_s2;
+size = length_s1 + length_s2 + 1;
 s = (char *)malloc(sizeof(char) * size); 
 if (s == NULL)
 return (NULL);
