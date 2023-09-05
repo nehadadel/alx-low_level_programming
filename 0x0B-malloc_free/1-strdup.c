@@ -25,8 +25,8 @@ s =(char *)malloc(sizeof(char) * (i + 1));
 if (s == NULL)
 return (NULL);
 
-for (j = 0; j <= i ; j++)
+for (j = 0; str[i] !='\0' ; j++)
 s[j] = str[j];
- s[j] = '\0';
+s[j] = '\0';
 return (s);
 }
