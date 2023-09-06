@@ -27,7 +27,6 @@ while (av[i][j] != '\0')
 j++;
 len++;
 }
-len++;
 }
 
 arr = (char *)malloc(len + ac  * sizeof(char));
