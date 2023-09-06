@@ -29,7 +29,7 @@ len++;
 }
 }
 
-arr = (char *)malloc(len + ac  * sizeof(char));
+arr = (char *)malloc(len + ac + 1  * sizeof(char));
 if (arr == NULL)
 return (NULL);
 
