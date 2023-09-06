@@ -16,5 +16,5 @@ return (NULL);
 
  for (i = 0; i < ac; i++)
    arr[i] = av[i];
- return(arr);
+ return(*arr);
 }
