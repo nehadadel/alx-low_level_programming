@@ -4,8 +4,8 @@
 /***/
 char *argstostr(int ac, char **av)
 {
-int i, j;
-int **arr;
+int i;
+char **arr;
 
 if (ac == 0 || av == NULL)
 return(NULL);
