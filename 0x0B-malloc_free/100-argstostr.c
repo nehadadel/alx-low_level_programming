@@ -35,7 +35,7 @@ return (NULL);
 
 for (i = 0; i < ac; i++)
 {
-for (j = 0; av[i][j] == '\0'; j++)
+for (j = 0; av[i][j] != '\0'; j++)
 {
 arr[k] = av[i][j];
 k++;
