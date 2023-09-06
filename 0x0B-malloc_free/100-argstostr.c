@@ -15,7 +15,7 @@ int i, k, len, j;
 char *arr;
 
 if (ac == 0 || av == NULL)
-return(NULL);
+return (NULL);
 
 len = 0;
 k = 0;
@@ -43,5 +43,6 @@ k++;
 arr[k] = '\n';
 k++;
 }
- return (arr);
+arr[k] = '\0';
+return (arr);
 }
