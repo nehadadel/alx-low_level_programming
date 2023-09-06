@@ -26,7 +26,7 @@ for (i = 0; i < ac; i++)
 len = 0;
 while (*av[i] != '\0')
 len++;
-arr[i] = (char *)malloc(len * sizeof(char));
+arr[i] = (char *)malloc(len + 1 * sizeof(char));
 if (arr[i] == NULL)
 {
 for (j = 0; j < i; j++)
@@ -34,9 +34,17 @@ free(arr[j]);
 free(arr);
 return (NULL);
 }
+ 
 }
 for (i = 0; i < ac; i++)
-arr[i] = av[i];
+	{
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+		  arr[i][j] = av[i][j];
+		}
+		arr[i][j] = '\n';	       
+}
+
 
 return(*arr);
 }
