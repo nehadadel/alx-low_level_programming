@@ -11,7 +11,7 @@
 */
 char *argstostr(int ac, char **av)
 {
-int i;
+int i, len, j;
 char **arr;
 
 if (ac == 0 || av == NULL)
@@ -22,6 +22,21 @@ if (arr == NULL)
 return (NULL);
 
 for (i = 0; i < ac; i++)
+{
+len = 0;
+while (*av[i] != '\0')
+len++;
+arr[i] = (char *)malloc(len * sizeof(char));
+if (arr[i] == NULL)
+{
+for (j = 0; j < i; j++)
+free(arr[j]);
+free(arr);
+return (NULL);
+}
+}
+for (i = 0; i < ac; i++)
 arr[i] = av[i];
+
 return(*arr);
 }
