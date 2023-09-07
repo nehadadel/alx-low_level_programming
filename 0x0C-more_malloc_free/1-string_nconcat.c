@@ -13,8 +13,8 @@
 */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-unsigned int len1, len2, len3;
-char *ptr , *p1, *p2;
+unsigned int len1, len2, len3, i;
+char *ptr;
 
 
 if (strlen(s1) == 0)
@@ -29,7 +29,10 @@ s2 = "";
 
 len1 = strlen(s1);
 len2 = strlen(s2);
-(n >= len2 )? len3 = len2 : len3 = n;
+if (n >= len2)
+len3 = len2;
+else
+len3 = n;
 
 ptr = (char *)malloc(sizeof(char) * (len1 + len3 + 1));
 if (ptr == NULL)
@@ -40,7 +43,8 @@ for (i = 0; i < (len1 + len3 + 1); i++)
 if (i < len1)
 *(ptr + i) = *(s1 + i);
 else
-*(ptr + i) = *(s2 + i);
+*(ptr + i) = *(s2 + i - len1);
 }
 *(ptr + i) = '\0';
+return (ptr);
 }
