@@ -23,6 +23,7 @@ return (NULL);
 n_dog->name = strdup(name);
 if (n_dog->name == NULL)
 {
+free(owner);
 free(n_dog);
 return (NULL);
 }
