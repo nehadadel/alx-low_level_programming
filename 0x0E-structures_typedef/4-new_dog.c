@@ -17,7 +17,10 @@ dog_t *n_dog;
 n_dog = (dog_t *)malloc(sizeof(dog_t));
 if (n_dog == NULL)
 return (NULL);
-
+if (name == NULL)
+return (NULL);
+if (owner == NULL)
+return (NULL);
 n_dog->name = strdup(name);
 if (n_dog->name == NULL)
 {
