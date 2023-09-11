@@ -19,11 +19,13 @@ if (name == NULL || owner == NULL)
 return (NULL);
 n_dog = (dog_t *)malloc(sizeof(dog_t));
 if (n_dog == NULL)
+{
+free(n_dog);
 return (NULL);
+}
 n_dog->name = strdup(name);
 if (n_dog->name == NULL)
 {
-free(owner);
 free(n_dog);
 return (NULL);
 }
