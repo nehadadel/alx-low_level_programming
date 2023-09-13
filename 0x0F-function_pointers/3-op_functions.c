@@ -18,7 +18,7 @@ return (a + b);
  *@a: number1
  *@b: number2
  *
- *Result: differance of a & b
+ *Return: differance of a & b
 */
 int op_sub(int a, int b)
 {
