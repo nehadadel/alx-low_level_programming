@@ -24,7 +24,7 @@ int i;
 i = 0;
 while (i < 6)
 {
-if (strcmp(ops[i].op, s) == 0)
+if (*(ops[i].op) == *s)
 return (ops[i].f);
 i++;
 }
