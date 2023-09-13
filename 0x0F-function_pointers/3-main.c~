@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+/**
+ * main - Prints multiplication of 2 arguments
+ * @argc: Number of command line arguments
+ * @argv: Array name
+ * Return: 0
+*/
+int main(int argc, char *argv[])
+{
+char op[] = {'+','-','*','/','%'};
+char operator;
+ 
+if (argc < 4 || argc >= 5)
+{
+printf("Error\n");
+exit(98);
+}
+
+
+}
