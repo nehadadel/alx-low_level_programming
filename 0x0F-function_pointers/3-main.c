@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "3-calc.h"
 /**
  * main - Prints multiplication of 2 arguments
  * @argc: Number of command line arguments
