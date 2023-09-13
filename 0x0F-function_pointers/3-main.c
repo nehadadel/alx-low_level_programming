@@ -22,7 +22,7 @@ exit(98);
 num1 = atoi(argv[1]);
 num2 = atoi(argv[3]);
 
-if (get_op_func(argv[2]) == NULL || argv[2][1] != '\0')
+if (argv[2][1] != '\0' || get_op_func(argv[2]) == NULL)
 {
 printf("Error\n");
 exit(99);
