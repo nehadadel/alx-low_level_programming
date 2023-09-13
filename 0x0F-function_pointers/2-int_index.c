@@ -16,10 +16,10 @@ int i;
 if (size <= 0)
 return (-1);
 
-if( array != NULL && cmp != NULL)
-for (i =0; i < size; i++)
+if (array != NULL && cmp != NULL)
+for (i = 0; i < size; i++)
 if (cmp(array[i]))
-return(array[i]);
+return (array[i]);
 
-return(0);
+return (0);
 }
