@@ -19,7 +19,7 @@ i = 0;
 va_start(args, format);
 while (format && format[i])
 i++;
-while(format && format[n])
+while (format && format[n])
 {
 if (n  == (i - 1))
 {
@@ -37,7 +37,7 @@ case 'f':
 printf("%f%s", va_arg(args, double), sep);
 break;
 case 's':
-s = va_arg(args, char *); 
+s = va_arg(args, char *);
 printf("%s%s", s == NULL ? "(nil)" : s, sep);
 break;
 }
