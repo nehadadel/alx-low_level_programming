@@ -20,13 +20,13 @@ while(*format)
 switch (*format)
 {
 case 'c':
-printf("%c", va_arg(args, char));
+printf("%c", va_arg(args, int));
 break;
 case 'i':
 printf("%d", va_arg(args, int));
 break;
 case 'f':
-printf("%f", va_arg(args, float));
+printf("%f", va_arg(args, double));
 break;
 case 's':
 s = va_arg(args, char *); 
