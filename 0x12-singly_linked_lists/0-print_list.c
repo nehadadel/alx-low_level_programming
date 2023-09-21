@@ -12,9 +12,9 @@ size_t node_count = 0;
 while (h != NULL)
 {
 if (h->str == NULL)
-printf("[%d] (nil)\n", node_count);
+printf("[%d] (nil)\n", h->len);
 else
-printf("[%d] %s\n", node_count, h->str);
+printf("[%d] %s\n", h->len, h->str);
 h = h->next;
 node_count++;
 }
