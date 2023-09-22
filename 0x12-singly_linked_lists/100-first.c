@@ -1,11 +1,7 @@
-#include <stdio.h>
-/**
- * before - Prints a string before the
- * main function is executed.
- */
-void __attribute__((constructor)) before(void)
-void before(void)
+#include<stdio.h>
+void before_main() _attribute_((constructor));
+void before_main()
 {
-printf("You're beat! and yet, you must allow,\n"
-"I bore my house upon my back!\n");
+printf("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
+}
 }
