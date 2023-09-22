@@ -1,7 +1,13 @@
-#include<stdio.h>
-void before_main(void) __attribute__((constructor));
-void after_main(void) __attribute__((destructor));
-void before_main(void)
+#include <stdio.h>
+
+void __attribute__((constructor)) hare(void);
+
+/**
+*beore - Prints a string before the
+* main function is executed.
+*/
+void before(void)
 {
-printf("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
+printf("You're beat! and yet, you must allow,\n"
+"I bore my house upon my back!\n");
 }
