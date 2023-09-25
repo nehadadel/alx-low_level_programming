@@ -28,5 +28,7 @@ temp = temp->next;
 }
 temp->next = new_node;
 }
+else
+*head = new_node;   
 return (new_node);
 }
