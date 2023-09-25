@@ -18,6 +18,6 @@ return (NULL);
 
 new_node->next = *head;
 new_node->n = n;
-new_node = *head;
+*head = new_node;
 return (new_node);
 }
