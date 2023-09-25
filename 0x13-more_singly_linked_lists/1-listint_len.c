@@ -18,7 +18,7 @@ while (temp)
 {
 temp = temp->next;
 len++;
-} 
-  
+}
+
 return (len);
 }
