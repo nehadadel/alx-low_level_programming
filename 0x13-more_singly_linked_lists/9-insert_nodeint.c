@@ -23,7 +23,12 @@ if (insert_node == NULL)
 return (NULL);
 
 insert_node->n = n;
-
+if (idx == 0)
+{
+insert_node->next = *head;
+*head = insert_node;
+return (insert_node);
+}
 while (temp != NULL)
 {
 if (idx - 1 == len)
