@@ -31,10 +31,12 @@ if (idx - 1 == len)
 temp2 = temp->next;
 temp->next = insert_node;
 insert_node->next = temp2;
+return (insert_node);
 }
 
 temp = temp->next;
 len++;
 }
+free(insert_node);
 return (NULL);
 }
