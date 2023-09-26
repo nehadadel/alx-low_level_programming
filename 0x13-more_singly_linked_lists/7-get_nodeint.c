@@ -15,7 +15,7 @@ listint_t *temp = head;
 if(head == NULL)
 return (NULL);
 
-while (temp->next != NULL)
+while (temp != NULL)
 {
 if (index == len)
 return (temp);
