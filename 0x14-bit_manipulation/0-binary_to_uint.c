@@ -1,5 +1,11 @@
 #include "main.h"
-/***/
+/**
+ *mul_by_2 - get the multiple of 2
+ *
+ *@i: power number
+ *
+ *Return: the result
+*/
 unsigned int mul_by_2(unsigned int i)
 {
 
@@ -8,7 +14,15 @@ return (1);
 
 return (2 * (mul_by_2(i - 1)));
 }
-/***/
+/**
+ *binary_to_uint -  converts a binary number to an unsigned int.
+ *
+ *@b: the binary number
+ *
+ *Return:the converted number, or 0 if
+ *here is one or more chars in the string b that is not 0 or 1
+ *b is NULL
+*/
 
 unsigned int binary_to_uint(const char *b)
 {
