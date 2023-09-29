@@ -16,5 +16,5 @@ return (-1);
 
 num = 0x01 << index;
 *n = *n | num;
-return(1);
+return (1);
 }
