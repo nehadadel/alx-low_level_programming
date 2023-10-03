@@ -18,13 +18,15 @@ int main(int argc, char *argv[])
 int fd_from, fd_to;
 char buffer[BUFFER_SIZE];
 ssize_t bytes_read, bytes_written;
-
+const char *file_from;
+const char *file_to;
+ 
 if (argc != 3)
 error_exit("Usage: cp file_from file_to", 97);
 
 
-const char *file_from = argv[1];
-const char *file_to = argv[2];
+file_from = argv[1];
+file_to = argv[2];
 
 fd_from = open(file_from, O_RDONLY);
 if (fd_from == -1)
