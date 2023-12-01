@@ -38,11 +38,6 @@ new_node->key = dup_key;
 new_node->value = dup_value;
 index = key_index((unsigned char *)dup_key, ht->size);
 
-if (value != NULL)
-dup_value = strdup(value);
-else
-dup_value = NULL;
-
 new_node->next = ht->array[index];
 ht->array[index] = new_node;
 return (1);
