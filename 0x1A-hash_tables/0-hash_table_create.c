@@ -20,7 +20,7 @@ if (hashtable == NULL)
 return (NULL);
 
 hashtable->size = size;
-hashtable->array = malloc(sizeof(hash_node_t) * size);
+hashtable->array = malloc(sizeof(hash_node_t *) * size);
 if (hashtable->array == NULL)
 return (NULL);
 
