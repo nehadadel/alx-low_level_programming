@@ -19,6 +19,7 @@ return (-1);
 if (index == 0)
 {
 temp = (*head)->next;
+if (temp->next != NULL)
 temp->prev = NULL;
 free(*head);
 *head = temp;
@@ -30,6 +31,7 @@ if (index - 1 == len)
 {
 deleted_node = temp->next;
 temp->next = deleted_node->next;
+if (temp->next != NULL)
 deleted_node->next->prev = temp;
 free(deleted_node);
 return (1);
