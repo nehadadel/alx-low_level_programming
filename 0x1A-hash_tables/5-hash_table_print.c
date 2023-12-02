@@ -10,7 +10,6 @@ unsigned long int i;
 hash_node_t *tmp;
 if (ht == NULL)
 {
-printf("{}\n");
 return; }
 printf("{");
 for (i = 0; i < ht->size; i++)
@@ -22,11 +21,11 @@ while (tmp != NULL)
 {
 printf("'%s': '%s'", tmp->key, tmp->value);
 if (tmp->next != NULL)
-printf(",");
+printf(", ");
 tmp = tmp->next;
 }
 if (i != ht->size - 1)
-printf(",");
+printf(", ");
 }
 }
 printf("}\n");
