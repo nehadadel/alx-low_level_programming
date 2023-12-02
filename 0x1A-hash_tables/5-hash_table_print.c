@@ -25,6 +25,7 @@ if (tmp->next != NULL)
 printf(",");
 tmp = tmp->next;
 }
+printf(",");
 }
 }
 printf("}\n");
