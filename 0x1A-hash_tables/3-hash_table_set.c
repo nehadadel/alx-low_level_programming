@@ -10,7 +10,7 @@
 */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-hash_node_t *new_node;
+hash_node_t *new_node, *temp;
 unsigned long int index;
 char *dup_value, *dup_key;
 
@@ -36,9 +36,27 @@ else
 dup_value = NULL;
 new_node->key = dup_key;
 new_node->value = dup_value;
+new_node->next = NULL;
 index = key_index((unsigned char *)dup_key, ht->size);
 
-new_node->next = ht->array[index];
+
+if (ht->array[index] == NULL)
+{
 ht->array[index] = new_node;
+return(1);
+}
+
+temp = ht->array[index];
+while (temp->next != NULL)
+{
+if (temp->key == dup_key)
+{
+temp->value = dup_value;
+free(new_node);
+return (1);
+}
+temp = temp->next;
+}
+temp->next = new_node;
 return (1);
 }
