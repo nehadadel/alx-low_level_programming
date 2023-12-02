@@ -42,7 +42,7 @@ index = key_index((unsigned char *)dup_key, ht->size);
 
 new_node->next = ht->array[index];
 ht->array[index] = new_node;
- 
+
 
 return (1);
 }
