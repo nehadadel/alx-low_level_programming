@@ -1,0 +1,5 @@
+#include "hash_tables.h"
+/**                                                                                                                                          
+ * free_node - Free a node.                                                                                                                  
+ * @node: Node to free.                                                                                                                      
+ *                                             
