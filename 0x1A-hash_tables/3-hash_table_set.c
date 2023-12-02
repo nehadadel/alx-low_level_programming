@@ -54,23 +54,23 @@ index = key_index((unsigned char *)dup_key, ht->size);
 
 if (ht->array[index] != NULL)
 {
-  if (strcmp(ht->array[index]->key, dup_key) == 0)
-    {
-      ht->array[index]->value = dup_value;
-      free_node(new_node);
-      return (1);
-    }
-  tmp = ht->array[index];
-  while (tmp->next != NULL)
-    {
-      if (strcmp(tmp->key, dup_key) == 0)
-	{
-	  tmp->value = dup_value;
-	  free_node(new_node);
-	  return (1);
-	}
-      tmp = tmp->next;
-    }
+if (strcmp(ht->array[index]->key, dup_key) == 0)
+{
+ht->array[index]->value = dup_value;
+free_node(new_node);
+return (1);
+}
+tmp = ht->array[index];
+while (tmp->next != NULL)
+{
+if (strcmp(tmp->key, dup_key) == 0)
+{
+tmp->value = dup_value;
+free_node(new_node);
+return (1);
+}
+tmp = tmp->next;
+}
 }
 
 new_node->next = ht->array[index];
