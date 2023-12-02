@@ -71,6 +71,12 @@ return (1);
 }
 tmp = tmp->next;
 }
+if (strcmp(tmp->key, dup_key) == 0)
+{
+tmp->value = dup_value;
+free_node(new_node);
+return (1);
+}
 }
 
 new_node->next = ht->array[index];
