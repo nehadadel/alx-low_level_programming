@@ -25,7 +25,7 @@ if (tmp->next != NULL)
 printf(",");
 tmp = tmp->next;
 }
-if (i != size - 1)
+if (i != ht->size - 1)
 printf(",");
 }
 }
