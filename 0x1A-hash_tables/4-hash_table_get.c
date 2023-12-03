@@ -17,14 +17,12 @@ return (NULL);
 
 index = key_index((unsigned char *)key, ht->size);
 tmp = ht->array[index];
-if (ht->array[index] == NULL)
-return (NULL);
 
 while (tmp != NULL)
 {
 if (strcmp(tmp->key, key) == 0)
 return (tmp->value);
-tmp->next = tmp;
+tmp = tmp->next;
 }
 return (NULL);
 }
