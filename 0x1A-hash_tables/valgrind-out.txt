@@ -1,1021 +1,140 @@
-==9513== Memcheck, a memory error detector
-==9513== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==9513== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
-==9513== Command: ./g
-==9513== Parent PID: 9472
-==9513== 
---9513-- 
---9513-- Valgrind options:
---9513--    --leak-check=full
---9513--    --show-leak-kinds=all
---9513--    --track-origins=yes
---9513--    --verbose
---9513--    --log-file=valgrind-out.txt
---9513-- Contents of /proc/version:
---9513--   Linux version 5.3.0-1032-aws (buildd@lgw01-amd64-026) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #34~18.04.2-Ubuntu SMP Fri Jul 24 10:06:28 UTC 2020
---9513-- 
---9513-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
---9513-- Page sizes: currently 4096, max supported 4096
---9513-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
---9513-- Reading syms from /alx-low_level_programming/0x1A-hash_tables/g
---9513-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.31.so
---9513--   Considering /usr/lib/x86_64-linux-gnu/ld-2.31.so ..
---9513--   .. CRC mismatch (computed 0306b78c wanted 8d362b37)
---9513--   Considering /lib/x86_64-linux-gnu/ld-2.31.so ..
---9513--   .. CRC mismatch (computed 0306b78c wanted 8d362b37)
---9513--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.31.so ..
---9513--   .. CRC is valid
---9513-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
---9513--    object doesn't have a symbol table
---9513--    object doesn't have a dynamic symbol table
---9513-- Scheduler: using generic scheduler lock implementation.
---9513-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
-==9513== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-9513-by-???-on-5e06a4edef9f
-==9513== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-9513-by-???-on-5e06a4edef9f
-==9513== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-9513-by-???-on-5e06a4edef9f
-==9513== 
-==9513== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==9513== don't want to do, unless you know exactly what you're doing,
-==9513== or are doing some strange experiment):
-==9513==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=9513 ...command...
-==9513== 
-==9513== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==9513==   /path/to/gdb ./g
-==9513== and then give GDB the following command
-==9513==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=9513
-==9513== --pid is optional if only one valgrind process is running
-==9513== 
---9513-- REDIR: 0x4022e10 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c9ce2 (???)
---9513-- REDIR: 0x4022be0 (ld-linux-x86-64.so.2:index) redirected to 0x580c9cfc (???)
---9513-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
---9513--    object doesn't have a symbol table
---9513-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
---9513--    object doesn't have a symbol table
-==9513== WARNING: new redirection conflicts with existing -- ignoring it
---9513--     old: 0x04022e10 (strlen              ) R-> (0000.0) 0x580c9ce2 ???
---9513--     new: 0x04022e10 (strlen              ) R-> (2007.0) 0x0483f060 strlen
---9513-- REDIR: 0x401f5f0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ffd0 (strcmp)
---9513-- REDIR: 0x4023370 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4843a20 (mempcpy)
---9513-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.31.so
---9513--   Considering /usr/lib/x86_64-linux-gnu/libc-2.31.so ..
---9513--   .. CRC mismatch (computed ef41b1a0 wanted f854b801)
---9513--   Considering /lib/x86_64-linux-gnu/libc-2.31.so ..
---9513--   .. CRC mismatch (computed ef41b1a0 wanted f854b801)
---9513--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.31.so ..
---9513--   .. CRC is valid
---9513-- REDIR: 0x48f44b0 (libc.so.6:memmove) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f37b0 (libc.so.6:strncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f47e0 (libc.so.6:strcasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f30d0 (libc.so.6:strcat) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f3810 (libc.so.6:rindex) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f5c80 (libc.so.6:rawmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x4910d10 (libc.so.6:wmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x4910850 (libc.so.6:wcscmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f4610 (libc.so.6:mempcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f4440 (libc.so.6:bcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f3740 (libc.so.6:strncmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f3180 (libc.so.6:strcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f4570 (libc.so.6:memset) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x4910810 (libc.so.6:wcschr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f36a0 (libc.so.6:strnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f3260 (libc.so.6:strcspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f4830 (libc.so.6:strncasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f3200 (libc.so.6:strcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f4980 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x4911f80 (libc.so.6:wcsnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x4910890 (libc.so.6:wcscpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f3850 (libc.so.6:strpbrk) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f3130 (libc.so.6:index) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f3660 (libc.so.6:strlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48fcbd0 (libc.so.6:memrchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f4880 (libc.so.6:strcasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f4400 (libc.so.6:memchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x4910960 (libc.so.6:wcslen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f3b10 (libc.so.6:strspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f4780 (libc.so.6:stpncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f4720 (libc.so.6:stpcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f5cc0 (libc.so.6:strchrnul) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x48f48d0 (libc.so.6:strncasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---9513-- REDIR: 0x49dc410 (libc.so.6:__strrchr_avx2) redirected to 0x483ea10 (rindex)
---9513-- REDIR: 0x48ee110 (libc.so.6:malloc) redirected to 0x483b780 (malloc)
---9513-- REDIR: 0x49dc5e0 (libc.so.6:__strlen_avx2) redirected to 0x483ef40 (strlen)
---9513-- REDIR: 0x49df5f0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x48429f0 (memmove)
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10923C: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b178 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10923C: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10923C: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b180 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10923C: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10923C: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b180 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10923C: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109256: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b268 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109256: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109256: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b270 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109256: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109256: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b270 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109256: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109270: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b368 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109270: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109270: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b370 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109270: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109270: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b370 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109270: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10928A: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b458 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10928A: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10928A: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b460 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10928A: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10928A: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b460 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10928A: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092A4: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b548 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092A4: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092A4: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b550 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092A4: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092A4: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b550 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092A4: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b638 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b640 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b640 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b728 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b730 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b730 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10930F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b8b8 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10930F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10930F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b8c0 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10930F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10930F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b8c0 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10930F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
---9513-- REDIR: 0x48ee700 (libc.so.6:free) redirected to 0x483c9d0 (free)
---9513-- REDIR: 0x49d7ae0 (libc.so.6:__strcmp_avx2) redirected to 0x483fed0 (strcmp)
-==9513== Invalid read of size 8
-==9513==    at 0x10966E: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10934F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b728 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x109682: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10934F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b728 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba48 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba50 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba50 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid read of size 8
-==9513==    at 0x10966E: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109383: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba48 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x109682: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109383: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba48 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid read of size 8
-==9513==    at 0x109691: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba50 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4bbd8 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4bbe0 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4bbe0 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid read of size 8
-==9513==    at 0x109691: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093B7: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4bbe0 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid read of size 8
-==9513==    at 0x10966E: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093B7: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba48 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid write of size 8
-==9513==    at 0x109682: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093B7: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba48 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid read of size 8
-==9513==    at 0x10983C: hash_table_print (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093C3: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b638 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
---9513-- REDIR: 0x49dc220 (libc.so.6:__strchrnul_avx2) redirected to 0x4843540 (strchrnul)
---9513-- REDIR: 0x49df5d0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4843660 (mempcpy)
-==9513== Invalid read of size 8
-==9513==    at 0x109867: hash_table_print (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093C3: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b640 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid read of size 8
-==9513==    at 0x109932: hash_table_delete (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093CF: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b640 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== Invalid read of size 8
-==9513==    at 0x109971: hash_table_delete (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093CF: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b638 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== HEAP SUMMARY:
-==9513==     in use at exit: 21 bytes in 3 blocks
-==9513==   total heap usage: 41 allocs, 38 frees, 9,512 bytes allocated
-==9513== 
-==9513== Searching for pointers to 3 not-freed blocks
-==9513== Checked 68,488 bytes
-==9513== 
-==9513== 3 bytes in 1 blocks are definitely lost in loss record 1 of 3
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x48F33BE: strdup (strdup.c:42)
-==9513==    by 0x1095C1: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10934F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 9 bytes in 1 blocks are definitely lost in loss record 2 of 3
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x48F33BE: strdup (strdup.c:42)
-==9513==    by 0x1095C1: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109383: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 9 bytes in 1 blocks are definitely lost in loss record 3 of 3
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x48F33BE: strdup (strdup.c:42)
-==9513==    by 0x1095C1: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093B7: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== LEAK SUMMARY:
-==9513==    definitely lost: 21 bytes in 3 blocks
-==9513==    indirectly lost: 0 bytes in 0 blocks
-==9513==      possibly lost: 0 bytes in 0 blocks
-==9513==    still reachable: 0 bytes in 0 blocks
-==9513==         suppressed: 0 bytes in 0 blocks
-==9513== 
-==9513== ERROR SUMMARY: 81 errors from 45 contexts (suppressed: 0 from 0)
-==9513== 
-==9513== 1 errors in context 1 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x109682: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093B7: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba48 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 2 of 45:
-==9513== Invalid read of size 8
-==9513==    at 0x10966E: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093B7: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba48 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 3 of 45:
-==9513== Invalid read of size 8
-==9513==    at 0x109691: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093B7: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4bbe0 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 4 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4bbe0 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 5 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4bbe0 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 6 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4bbd8 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 7 of 45:
-==9513== Invalid read of size 8
-==9513==    at 0x109691: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10939D: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba50 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 8 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x109682: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109383: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba48 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 9 of 45:
-==9513== Invalid read of size 8
-==9513==    at 0x10966E: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109383: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba48 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 10 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba50 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 11 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba50 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 12 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4ba48 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109369: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 13 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x109682: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10934F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b728 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 14 of 45:
-==9513== Invalid read of size 8
-==9513==    at 0x10966E: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10934F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b728 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 15 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10930F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b8c0 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10930F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 16 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10930F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b8c0 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10930F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 17 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10930F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b8b8 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10930F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 18 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b730 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 19 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b730 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 20 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b728 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092D8: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 21 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b640 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 22 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b640 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 23 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b638 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 24 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092A4: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b550 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092A4: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 25 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092A4: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b550 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092A4: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 26 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092A4: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b548 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092A4: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 27 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10928A: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b460 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10928A: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 28 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10928A: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b460 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10928A: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 29 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10928A: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b458 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10928A: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 30 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109270: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b370 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109270: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 31 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109270: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b370 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109270: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 32 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109270: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b368 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109270: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 33 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109256: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b270 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109256: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 34 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109256: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b270 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109256: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 35 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109256: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b268 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x109256: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 36 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1096DF: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10923C: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b180 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10923C: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 37 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094D2: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10923C: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b180 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10923C: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 1 errors in context 38 of 45:
-==9513== Invalid write of size 8
-==9513==    at 0x1094CA: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10923C: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b178 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x10923C: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 10 errors in context 39 of 45:
-==9513== Invalid read of size 8
-==9513==    at 0x109971: hash_table_delete (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093CF: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b638 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 10 errors in context 40 of 45:
-==9513== Invalid read of size 8
-==9513==    at 0x109932: hash_table_delete (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093CF: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b640 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 10 errors in context 41 of 45:
-==9513== Invalid read of size 8
-==9513==    at 0x109867: hash_table_print (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093C3: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b640 is 8 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== 
-==9513== 10 errors in context 42 of 45:
-==9513== Invalid read of size 8
-==9513==    at 0x10983C: hash_table_print (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1093C3: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==  Address 0x4a4b638 is 0 bytes after a block of size 8 alloc'd
-==9513==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9513==    by 0x1094A4: create_node (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1096B2: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513==    by 0x1092BE: main (in /alx-low_level_programming/0x1A-hash_tables/g)
-==9513== 
-==9513== ERROR SUMMARY: 81 errors from 45 contexts (suppressed: 0 from 0)
+==9612== Memcheck, a memory error detector
+==9612== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==9612== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
+==9612== Command: ./g
+==9612== Parent PID: 9472
+==9612== 
+--9612-- 
+--9612-- Valgrind options:
+--9612--    --leak-check=full
+--9612--    --show-leak-kinds=all
+--9612--    --track-origins=yes
+--9612--    --verbose
+--9612--    --log-file=valgrind-out.txt
+--9612-- Contents of /proc/version:
+--9612--   Linux version 5.3.0-1032-aws (buildd@lgw01-amd64-026) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #34~18.04.2-Ubuntu SMP Fri Jul 24 10:06:28 UTC 2020
+--9612-- 
+--9612-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
+--9612-- Page sizes: currently 4096, max supported 4096
+--9612-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
+--9612-- Reading syms from /alx-low_level_programming/0x1A-hash_tables/g
+--9612-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.31.so
+--9612--   Considering /usr/lib/x86_64-linux-gnu/ld-2.31.so ..
+--9612--   .. CRC mismatch (computed 0306b78c wanted 8d362b37)
+--9612--   Considering /lib/x86_64-linux-gnu/ld-2.31.so ..
+--9612--   .. CRC mismatch (computed 0306b78c wanted 8d362b37)
+--9612--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.31.so ..
+--9612--   .. CRC is valid
+--9612-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
+--9612--    object doesn't have a symbol table
+--9612--    object doesn't have a dynamic symbol table
+--9612-- Scheduler: using generic scheduler lock implementation.
+--9612-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
+==9612== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-9612-by-???-on-5e06a4edef9f
+==9612== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-9612-by-???-on-5e06a4edef9f
+==9612== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-9612-by-???-on-5e06a4edef9f
+==9612== 
+==9612== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==9612== don't want to do, unless you know exactly what you're doing,
+==9612== or are doing some strange experiment):
+==9612==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=9612 ...command...
+==9612== 
+==9612== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==9612==   /path/to/gdb ./g
+==9612== and then give GDB the following command
+==9612==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=9612
+==9612== --pid is optional if only one valgrind process is running
+==9612== 
+--9612-- REDIR: 0x4022e10 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c9ce2 (???)
+--9612-- REDIR: 0x4022be0 (ld-linux-x86-64.so.2:index) redirected to 0x580c9cfc (???)
+--9612-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
+--9612--    object doesn't have a symbol table
+--9612-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
+--9612--    object doesn't have a symbol table
+==9612== WARNING: new redirection conflicts with existing -- ignoring it
+--9612--     old: 0x04022e10 (strlen              ) R-> (0000.0) 0x580c9ce2 ???
+--9612--     new: 0x04022e10 (strlen              ) R-> (2007.0) 0x0483f060 strlen
+--9612-- REDIR: 0x401f5f0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ffd0 (strcmp)
+--9612-- REDIR: 0x4023370 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4843a20 (mempcpy)
+--9612-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.31.so
+--9612--   Considering /usr/lib/x86_64-linux-gnu/libc-2.31.so ..
+--9612--   .. CRC mismatch (computed ef41b1a0 wanted f854b801)
+--9612--   Considering /lib/x86_64-linux-gnu/libc-2.31.so ..
+--9612--   .. CRC mismatch (computed ef41b1a0 wanted f854b801)
+--9612--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.31.so ..
+--9612--   .. CRC is valid
+--9612-- REDIR: 0x48f44b0 (libc.so.6:memmove) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f37b0 (libc.so.6:strncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f47e0 (libc.so.6:strcasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f30d0 (libc.so.6:strcat) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f3810 (libc.so.6:rindex) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f5c80 (libc.so.6:rawmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x4910d10 (libc.so.6:wmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x4910850 (libc.so.6:wcscmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f4610 (libc.so.6:mempcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f4440 (libc.so.6:bcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f3740 (libc.so.6:strncmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f3180 (libc.so.6:strcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f4570 (libc.so.6:memset) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x4910810 (libc.so.6:wcschr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f36a0 (libc.so.6:strnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f3260 (libc.so.6:strcspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f4830 (libc.so.6:strncasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f3200 (libc.so.6:strcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f4980 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x4911f80 (libc.so.6:wcsnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x4910890 (libc.so.6:wcscpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f3850 (libc.so.6:strpbrk) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f3130 (libc.so.6:index) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f3660 (libc.so.6:strlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48fcbd0 (libc.so.6:memrchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f4880 (libc.so.6:strcasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f4400 (libc.so.6:memchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x4910960 (libc.so.6:wcslen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f3b10 (libc.so.6:strspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f4780 (libc.so.6:stpncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f4720 (libc.so.6:stpcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f5cc0 (libc.so.6:strchrnul) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x48f48d0 (libc.so.6:strncasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--9612-- REDIR: 0x49dc410 (libc.so.6:__strrchr_avx2) redirected to 0x483ea10 (rindex)
+--9612-- REDIR: 0x48ee110 (libc.so.6:malloc) redirected to 0x483b780 (malloc)
+--9612-- REDIR: 0x49dc5e0 (libc.so.6:__strlen_avx2) redirected to 0x483ef40 (strlen)
+--9612-- REDIR: 0x49df5f0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x48429f0 (memmove)
+--9612-- REDIR: 0x48ee700 (libc.so.6:free) redirected to 0x483c9d0 (free)
+--9612-- REDIR: 0x49d7ae0 (libc.so.6:__strcmp_avx2) redirected to 0x483fed0 (strcmp)
+--9612-- REDIR: 0x49dc220 (libc.so.6:__strchrnul_avx2) redirected to 0x4843540 (strchrnul)
+--9612-- REDIR: 0x49df5d0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4843660 (mempcpy)
+==9612== 
+==9612== HEAP SUMMARY:
+==9612==     in use at exit: 21 bytes in 3 blocks
+==9612==   total heap usage: 41 allocs, 38 frees, 9,672 bytes allocated
+==9612== 
+==9612== Searching for pointers to 3 not-freed blocks
+==9612== Checked 68,488 bytes
+==9612== 
+==9612== 3 bytes in 1 blocks are definitely lost in loss record 1 of 3
+==9612==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==9612==    by 0x48F33BE: strdup (strdup.c:42)
+==9612==    by 0x1095C1: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
+==9612==    by 0x10934F: main (in /alx-low_level_programming/0x1A-hash_tables/g)
+==9612== 
+==9612== 9 bytes in 1 blocks are definitely lost in loss record 2 of 3
+==9612==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==9612==    by 0x48F33BE: strdup (strdup.c:42)
+==9612==    by 0x1095C1: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
+==9612==    by 0x109383: main (in /alx-low_level_programming/0x1A-hash_tables/g)
+==9612== 
+==9612== 9 bytes in 1 blocks are definitely lost in loss record 3 of 3
+==9612==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==9612==    by 0x48F33BE: strdup (strdup.c:42)
+==9612==    by 0x1095C1: hash_table_set (in /alx-low_level_programming/0x1A-hash_tables/g)
+==9612==    by 0x1093B7: main (in /alx-low_level_programming/0x1A-hash_tables/g)
+==9612== 
+==9612== LEAK SUMMARY:
+==9612==    definitely lost: 21 bytes in 3 blocks
+==9612==    indirectly lost: 0 bytes in 0 blocks
+==9612==      possibly lost: 0 bytes in 0 blocks
+==9612==    still reachable: 0 bytes in 0 blocks
+==9612==         suppressed: 0 bytes in 0 blocks
+==9612== 
+==9612== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)

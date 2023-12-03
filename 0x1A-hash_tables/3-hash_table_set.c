@@ -23,7 +23,9 @@ if (value != NULL)
 {
 dup_value = strdup(value);
 if (dup_value == NULL)
-return (0); }
+{
+free(dup_key);
+return (0); } }
 index = key_index((unsigned char *)dup_key, ht->size);
 if (ht->array[index] != NULL)
 {
@@ -32,13 +34,16 @@ while (tmp != NULL)
 {
 if (strcmp(tmp->key, dup_key) == 0)
 {
+free(dup_key);
 free(tmp->value);
 tmp->value = dup_value;
 return (1); }
 tmp = tmp->next; } }
-new_node = create_node(dup_key, dup_value);
+new_node = malloc(sizeof(hash_node_t));
 if (new_node == NULL)
 return (0);
+new_node->key = dup_key;
+new_node->value = dup_value;
 new_node->next = ht->array[index];
 ht->array[index] = new_node;
 return (1); }
