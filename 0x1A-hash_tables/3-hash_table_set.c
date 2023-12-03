@@ -55,8 +55,9 @@ while (tmp != NULL)
 {
 if (strcmp(tmp->key, dup_key) == 0)
 {
-tmp->value = dup_value;
+free(tmp->value);
 free_node(new_node);
+tmp->value = strdup(value);
 return (1); }
 tmp = tmp->next; } }
 new_node->next = ht->array[index];
