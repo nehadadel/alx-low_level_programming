@@ -28,3 +28,23 @@ for (i = 0; i < size; i++)
 hashtable->array[i] = NULL;
 return (hashtable);
 }
+/**
+*create_node - create new node
+*
+*@key: data of node
+*@value: data of node
+*
+*Return: pointer to new node
+*/
+
+hash_node_t *create_node(char *key, char *value)
+{
+hash_node_t *new_node = malloc(sizeof(hash_node_t *));
+if (new_node == NULL)
+return (NULL);
+
+new_node->key = key;
+new_node->value = value;
+new_node->next = NULL;
+return (new_node);
+}
