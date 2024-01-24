@@ -6,6 +6,8 @@ task5
 
 def island_perimeter(grid):
     """that returns the perimeter of the island described in grid"""
+    if len(grid) > 100:
+        return
     prem = 0
     flag_c = 0
     flag_r = 0
