@@ -3,6 +3,7 @@
 task5
 """
 
+
 def island_perimeter(grid):
     """that returns the perimeter of the island described in grid"""
     prem = 0
