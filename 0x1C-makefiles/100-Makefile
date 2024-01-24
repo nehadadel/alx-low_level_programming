@@ -9,6 +9,6 @@ all: m.h $(OBJ)
 clean:
 	$(RM) *~ \#* $(NAME)
 oclean:
-	$(RM) $(OBJ)
+	clean $(OBJ)
 fclean: oclean clean
 re: oclean all
