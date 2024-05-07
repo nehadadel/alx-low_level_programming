@@ -24,11 +24,8 @@ for (i = 0; i < size; i++)
 printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 if (array[i] == value)
 {
-printf("Found %d at index: %ld\n", value, i);
 return (i);
 }
 }
-if (i == size)
-printf("Found %d at index: %d\n", value, -1);
 return (-1);
 }
